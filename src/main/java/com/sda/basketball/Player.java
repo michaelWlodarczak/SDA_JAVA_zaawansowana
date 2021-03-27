@@ -1,0 +1,91 @@
+package com.sda.basketball;
+
+import java.util.Objects;
+
+public class Player implements Comparable<Player> {
+    private String firstName;
+    private String lastName;
+    private int height;
+
+    public Player(String firstName, String lastName, int height) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.height = height;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+  /*  @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof Player)){
+            return false;
+        }
+        Player otherPlayer = (Player) other;
+        return this.getFirstName().equals(otherPlayer.getFirstName())
+                && this.getLastName().  */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return height == player.height
+                && firstName.equals(player.firstName)
+                && lastName.equals(player.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, height);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", height=" + height +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Player otherPlayer) {
+        if (this.getHeight() > otherPlayer.getHeight()) {
+            return 1;
+        } else if (this.getHeight() == otherPlayer.getHeight()) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+}
