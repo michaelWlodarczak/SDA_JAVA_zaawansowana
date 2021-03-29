@@ -6,6 +6,7 @@ import java.util.List;
 
 public class BasketballTeamApp {
     public static void main(String[] args) {
+        //ZESPOL BASKET BALL TEAM
         BasketballTeam chicagoBulls = new BasketballTeam();
 
         Player jordan = new Player("Michael", "Jordan", 198);
@@ -17,19 +18,28 @@ public class BasketballTeamApp {
         chicagoBulls.addPlayer(jordan);
         chicagoBulls.addPlayer(jordan2);
 
-        System.out.println(chicagoBulls.getPlayer());
 
+        System.out.println(chicagoBulls.getPlayer());
+        // SORTOWANIE
         List<Player> playerList = new ArrayList<>();
         playerList.add(jordan);
         Player gortat = new Player("Marcin", "Gortat", 211);
         Player malysz = new Player("Adam","Malysz",170);
         playerList.add(malysz);
         playerList.add(gortat);
+        chicagoBulls.addPlayer(malysz);
+        chicagoBulls.addPlayer(gortat);
+        chicagoBulls.addPlayer(jordan);
 
         System.out.println(playerList);
         playerList.sort(null);  // <- null bo pobiera comparator domyslny z klasy Player
         System.out.println(playerList);
         playerList.sort(Comparator.reverseOrder());
         System.out.println(playerList);
+
+
+        System.out.println(chicagoBulls.getPlayer());
+        System.out.println(chicagoBulls.higherThen180());
+
     }
 }
